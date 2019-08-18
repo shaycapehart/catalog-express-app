@@ -1,0 +1,8 @@
+<h1>{{title}}</h1>
+<ul>
+  {{#each genre_list as |genre|}}
+  <li>
+    <a href="{{genre.url}}">{{genre.name}} </a>
+  </li>
+  {{/each}}
+</ul>

@@ -1,0 +1,51 @@
+<h1>{{title}}</h1>
+<form method="POST" action="">
+
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input id="title" type="text" placeholder="Name of book" name="title" required="true"
+      value="{{#if book}}{{book.title}}{{/if}}" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="author">Author:</label>
+    <select class="form-control" type="select" placeholder="Select author" name="author" required="true">
+      {{#authorOptions book authors}}
+      {{/authorOptions}}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="summary">Summary:</label>
+    <textarea id="summary" type="textarea" placeholder="Summary" name="summary" rows="3" required="true"
+      class="form-control">{{#if book}}{{book.summary}}{{/if}}</textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="isbn">ISBN:</label>
+    <input id="isbn" type="text" placeholder="ISBN13" name="isbn" value="{{#if book}}{{book.isbn}}{{/if}}"
+      required="true" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Genre:</label>
+    <div>
+      {{#each genres as |genre|}}
+      <div style="display: inline; padding-right:10px;">
+        <input type="checkbox" name="genre" id="{{genre._id}}" value="{{genre._id}}"
+          {{#if genre.checked}}checked{{else}}{{/if}} class="checkbox-input">
+        <label for="{{genre._id}}">{{genre.name}}</label>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{{#if errors }}
+<ul>
+  {{#each errors as |error|}}
+  <li>{{error.msg}}</li>
+  {{/each}}
+</ul>
+{{/if}}
