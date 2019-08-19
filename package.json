@@ -8,6 +8,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "env-cmd -f ./config/dev.env nodemon ./bin/www",
+    "prod": "env-cmd -f ./config/prod.env nodemon ./bin/www",
     "devstart": "nodemon ./bin/www"
   },
   "dependencies": {

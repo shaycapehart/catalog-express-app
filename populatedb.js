@@ -19,8 +19,7 @@ var Genre = require('./models/genre')
 var BookInstance = require('./models/bookinstance')
 
 var mongoose = require('mongoose')
-var mongoDB =
-  'mongodb+srv://taskapp:eD@u@k29dNF2kWK@cluster0-4jalw.mongodb.net/local_library?retryWrites=true&w=majority'
+
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
